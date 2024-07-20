@@ -3,15 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchButton.addEventListener('click', fetchPosts);
 });
 
-const {
-  MediumClient,
-  PostContentFormat,
-  PostPublishStatus,
-} = require('medium-sdk-ts');
-
-// Access Token is optional, can also be set
-// as environment variable `MEDIUM_ACCESS_TOKEN`
-const medium = new MediumClient('YOUR_ACCESS_TOKEN');
+// 使用从 CDN 加载的 MediumClient
+const medium = new window.MediumClient('YOUR_ACCESS_TOKEN');
 
 async function fetchPosts() {
   const username = document.getElementById('username').value;
